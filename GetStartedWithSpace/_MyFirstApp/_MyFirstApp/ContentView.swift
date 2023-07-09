@@ -16,15 +16,26 @@ struct ContentView: View {
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImeersiveSpace
 
+    //
+    enum DeatilViewScene: Equatable {
+        case scene_1
+        case scene_2
+    }
+
+    @State var scene: DeatilViewScene = .scene_1
+
     var body: some View {
         NavigationSplitView {
             List {
                 Text("Item_1")
                     .onTapGesture {
-                        print("123")
+                        scene = .scene_1
                     }
 
                 Text("Item_2")
+                    .onTapGesture {
+                        scene = .scene_2
+                    }
 
             }.navigationTitle("Sidebar")
         } detail: {
