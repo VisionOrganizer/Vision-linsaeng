@@ -10,7 +10,7 @@ import RealityKit
 import RealityKitContent
 
 struct ContentView: View {
-
+    var solarSystem: SolarSystem
     @State var showImmersiveSpace: Bool = false
 
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
@@ -47,6 +47,10 @@ struct ContentView: View {
                 if newValue {
                     // 비동기
                     await openImmersiveSpace(id: "Immersive")
+
+                    // 왜 버벅이지?
+//                    await openImmersiveSpace(value: solarSystem.id)
+                    
                 } else {
                     await dismissImeersiveSpace()
                 }
@@ -55,6 +59,3 @@ struct ContentView: View {
     }
 }
 
-#Preview {
-    ContentView()
-}
